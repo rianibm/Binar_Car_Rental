@@ -1,0 +1,29 @@
+/* styleguide */
+:root {
+  --primary-darkblue05: hsla(229, 85%, 24%, 1);
+  --primary-darkblue04: hsla(229, 85%, 35%, 1);
+  --primary-darkblue03: hsla(229, 46%, 57%, 1);
+  --primary-darkblue02: hsla(229, 46%, 78%, 1);
+  --primary-darkblue01: hsla(230, 45%, 87%, 1);
+  --primary-limegreen05: hsla(122, 34%, 36%, 1);
+  --primary-limegreen04: hsla(122, 39%, 54%, 1);
+  --primary-limegreen03: hsla(122, 40%, 69%, 1);
+  --primary-limegreen02: hsla(122, 38%, 85%, 1);
+  --primary-limegreen01: hsla(123, 40%, 91%, 1);
+
+  /* Alert */
+  --danger: hsla(347, 95%, 58%, 1);
+  --warning: hsla(49, 100%, 49%, 1);
+  --success: hsla(107, 51%, 58%, 1);
+
+  /* neutral */
+  --neutral05: hsla(0, 0%, 8%, 1);
+  --neutral04: hsla(0, 0%, 24%, 1);
+  --neutral03: hsla(0, 0%, 54%, 1);
+  --neutral02: hsla(0, 0%, 82%, 1);
+  --neutral01: hsla(0, 0%, 100%, 1);
+
+  /* shadow */
+  --shadow-low: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  --shadow-high: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
