@@ -16,7 +16,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+        <div class="container">
           <a class="navbar-brand" href="#">
             <img src="assets/logo.svg" alt="" />
           </a>
@@ -31,8 +31,9 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="custom-navbar-collapse" id="navbarSupportedContent">
+            <!-- Use a custom class for styling -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" href="#">Our Services</a>
               </li>
@@ -46,22 +47,23 @@
                 <a class="nav-link" href="#">FAQ</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <a href="#" class="d-flex" role="search">
               <button class="btn btn-primary" type="submit">Register</button>
-            </form>
+            </a>
           </div>
         </div>
       </nav>
     </header>
-    <main class="container">
+
+    <main>
       <section
         class="jumbotron"
         style="background-color: hsla(231, 100%, 97%, 1)"
       >
-        <div class="row">
+        <div class="row container d-flex align-items-center ms-5">
           <div class="col-6">
             <h1>Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
-            <p>
+            <p class="section-desc">
               Selamat datang di Binar Car Rental. Kami menyediakan mobil
               kualitas terbaik dengan harga terjangkau. Selalu siap melayani
               kebutuhanmu untuk sewa mobil selama 24 jam.
@@ -84,7 +86,7 @@
           </div>
           <div class="col-6">
             <h3>Best Car Rental for any kind of trip in (Lokasimu)!</h3>
-            <p>
+            <p class="section-desc">
               Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
               lebih murah dibandingkan yang lain, kondisi mobil baru, serta
               kualitas pelayanan terbaik untuk perjalanan wisata, bisnis,
@@ -113,9 +115,9 @@
           </div>
         </div>
       </section>
-      <section class="why-us mb-5">
+      <section class="why-us mb-5 container">
         <h3>Why Us?</h3>
-        <p>Mengapa harus pilih Binar Car Rental?</p>
+        <p class="section-desc">Mengapa harus pilih Binar Car Rental?</p>
         <!-- cards -->
         <div class="row">
           <div class="col-3">
@@ -170,19 +172,21 @@
       </section>
       <section class="testimonials text-center">
         <h3>Testimonials</h3>
-        <p>Berbagai review positif dari para pelanggan kami</p>
+        <p class="section-desc">
+          Berbagai review positif dari para pelanggan kami
+        </p>
         <!-- testimonial cards -->
       </section>
-      <section class="cta">
+      <section class="cta p-lg-5 container rounded-3">
         <h3 class="cta-heading text-center">
           Sewa Mobil di (Lokasimu) Sekarang
         </h3>
-        <p class="cta-body text-center">
+        <p class="cta-body text-center m-0 mx-auto section-desc">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <a href="#" class="d-flex justify-content-center">
-          <button class="btn btn-primary">Mulai Sewa Mobil</button>
+          <button class="btn btn-primary mt-5">Mulai Sewa Mobil</button>
         </a>
       </section>
       <section class="faq mb-4 mt-lg-4">
@@ -194,12 +198,14 @@
             </h3>
             <div class="row justify-content-center">
               <div class="col-6 col-sm-8 col-lg-6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <p class="section-desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </p>
               </div>
               <div class="col-6">
                 <div class="row">
                   <!-- FAQ Area-->
-                  <div class="col-12 col-sm-10 col-lg-8">
+                  <div class="col-12 faq-wrapper">
                     <div class="accordion faq-accordion" id="faqAccordion">
                       <div
                         class="accordion-item border-0 wow fadeInUp"
@@ -385,16 +391,16 @@
         </div>
         <div class="col-3 nav-footer d-flex gap-2">
           <ul>
-            <li class="nav-link">
+            <li class="nav-footer">
               <a href="#">Our Service</a>
             </li>
-            <li class="nav-link">
+            <li class="nav-footer">
               <a href="#">Why US</a>
             </li>
-            <li class="nav-link">
+            <li class="nav-footer">
               <a href="#">Testimonials</a>
             </li>
-            <li class="nav-link">
+            <li class="nav-footer">
               <a href="#">FAQ</a>
             </li>
           </ul>
