@@ -149,6 +149,15 @@ ol {
   background: #f1f3ff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
   overflow: hidden; /* Hide overflow content */
+
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper-testimonial-content {
+  width: 25.9375rem;
 }
 
 .testimonial-content-body {
