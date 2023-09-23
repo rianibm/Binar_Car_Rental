@@ -37,6 +37,7 @@ a {
 ul,
 ol {
   list-style-type: none;
+  /* padding-left: 0 !important; */
 }
 
 .custom-header {
@@ -303,5 +304,8 @@ header {
   .cta-heading,
   .cta-body {
     width: 13.25rem;
+  }
+  footer {
+    margin: 32px;
   }
 }
