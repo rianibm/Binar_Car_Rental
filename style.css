@@ -28,15 +28,10 @@
   --shadow-high: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
-/* button styleguide */
-.btn-primary {
-  background: var(--primary-limegreen04) !important;
-  border: none !important;
-}
-
-/* a href */
+/* Global Styles */
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+  color: black;
 }
 
 ul,
@@ -44,6 +39,21 @@ ol {
   list-style-type: none;
 }
 
+.custom-header {
+  background-color: #f1f3ff !important;
+}
+
+header {
+  @extend .custom-header;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--primary-limegreen04) !important;
+  border: none !important;
+}
+
+/* Navbar Styles */
 .navbar-brand {
   width: 6.25rem;
   height: 2.125rem;
@@ -57,33 +67,41 @@ ol {
   gap: 16px;
 }
 
-/* jumbotron */
+.nav-link {
+  color: #000;
+
+  /* Body/14/Regular */
+  font-family: Helvetica;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+}
+
+/* Common Text Styles */
+.jumbotron p,
+.best-car-rental p,
+.section-desc,
+.testimonial-content-body,
+.testimonial-source,
+.info-binar,
+.nav-footer-wrapper {
+  color: #000;
+  font-family: Helvetica;
+  font-weight: 300;
+  line-height: 1.25rem; /* 142.857% */
+  font-style: normal;
+  font-size: 0.875rem;
+}
+
 .jumbotron p {
-  color: #000;
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
   font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
 }
 
+/* Jumbotron and Image Styles */
 .gambar-jumbotron {
-  width: 39rem;
+  width: 39.5rem;
   flex-shrink: 0;
-}
-
-/* best car rental */
-.best-car-rental p {
-  color: #000;
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
 }
 
 .image-service {
@@ -92,6 +110,7 @@ ol {
   flex-shrink: 0;
 }
 
+/* Why us */
 /* why us */
 .card {
   display: flex;
@@ -128,28 +147,20 @@ ol {
   padding: 0 !important;
 }
 
-/* all section */
-.section-desc {
-  color: #000;
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
+/* Testimonial Styles */
+.img-testimonial {
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
 }
-
-/* testimonial */
 .testimonial {
-  width: 38.6875rem;
+  width: 36rem;
   height: 16.875rem;
   flex-shrink: 0;
   border-radius: 0.5rem;
   background: #f1f3ff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-  overflow: hidden; /* Hide overflow content */
-
+  overflow: hidden;
   align-content: center;
   display: flex;
   justify-content: center;
@@ -160,29 +171,66 @@ ol {
   width: 25.9375rem;
 }
 
-.testimonial-content-body {
-  color: #000;
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
-}
-
 .testimonial-source {
-  color: #000;
-
-  /* Body/14/Regular */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
   font-weight: 400;
-  line-height: 1.25rem; /* 142.857% */
 }
 
-/* cta */
+/* Testimonial Container */
+.testimonial-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Apply overflow hidden to the first and third testimonials */
+.testimonial-container .testimonial:first-child,
+.testimonial-container .testimonial:nth-child(3) {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Adjust the width of the testimonials to make space for hidden content */
+.testimonial-container .testimonial:first-child,
+.testimonial-container .testimonial:nth-child(3) {
+  width: 25.5%;
+}
+
+.first-testimonial {
+  position: relative;
+  right: 100px;
+}
+
+.third-testimonial {
+  position: relative;
+  left: 120px;
+}
+
+/* Your existing CSS styles here */
+
+/* Custom Carousel Control Styles */
+.custom-carousel-control-prev,
+.custom-carousel-control-next {
+  background: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* .custom-carousel-control-prev img,
+.custom-carousel-control-next img {
+  width: 100%; 
+  height: auto; 
+}
+
+.custom-carousel-control-prev:hover,
+.custom-carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+} */
+
+/* CTA Styles */
 .cta {
   background: var(--primary-darkblue04);
   color: white;
@@ -190,24 +238,15 @@ ol {
 
 .cta-heading {
   font-family: Helvetica;
-  font-style: normal;
   font-weight: 700;
-  line-height: 150%; /* 3.375rem */
+  line-height: 150%;
 }
 
 .cta-body {
-  color: var(--neutral-01, #fff);
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
   width: 29.25rem;
 }
 
-/* faq */
+/* FAQ Styles */
 .faq-wrapper {
   display: inline-flex;
   flex-direction: column;
@@ -218,27 +257,16 @@ ol {
   border-radius: 0.25rem;
   border: 1px solid #d4d4d4;
   background: #fff;
-
-  color: #000;
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
   font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
 }
 
-.info-binar {
-  width: 16.75rem;
-  color: #000;
-
-  /* Body/14/Light */
-  font-family: Helvetica;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 1.25rem; /* 142.857% */
+/* Footer Styles */
+.nav-footer-wrapper {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .nav-footer {
@@ -251,5 +279,3 @@ ol {
   font-weight: 400;
   line-height: 1.25rem; /* 142.857% */
 }
-
-/* responsive */
