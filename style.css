@@ -293,4 +293,15 @@ header {
   .card-body {
     width: 100%;
   }
+  .cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    gap: 2rem;
+  }
+  .cta-heading,
+  .cta-body {
+    width: 13.25rem;
+  }
 }
