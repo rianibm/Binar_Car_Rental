@@ -22,45 +22,64 @@
   </head>
   <body>
     <header class="custom-header">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
-          <a class="navbar-brand" href="#">
-            <img
-              src="https://i.ibb.co/M5t4WTk/copyright.png"
-              alt="logo"
-              border="0"
-            />
-          </a>
+          <a class="navbar-brand" href="#"
+            ><img
+              src="assets/copyright-rectangle.svg"
+              width="38"
+              height="30"
+              class="me-3"
+              alt="Bootstrap"
+          /></a>
           <button
             class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbarExample-expand-sm"
+            aria-controls="offcanvasNavbarExample-expand-sm"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span
+              class="navbar-toggler-icon"
+              data-bs-target="#offcanvasNavbarExample-expand-sm"
+            ></span>
           </button>
-          <div class="custom-navbar-collapse" id="navbarSupportedContent">
-            <!-- Use a custom class for styling -->
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Our Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Why Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Testimonials</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
-              </li>
-            </ul>
-            <a href="sign-up.html" class="d-flex" role="search">
-              <button class="btn btn-primary" type="submit">Register</button>
-            </a>
+          <div
+            class="offcanvas offcanvas-end"
+            data-bs-hideresize="true"
+            tabindex="-1"
+            id="offcanvasNavbarExample-expand-sm"
+            aria-labelledby="offcanvasNavbarExample-expand-smLabel"
+            style="width: 15rem"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasLabel">BCR</h5>
+              <button
+                type="button"
+                class="btn-close text-reset"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Our Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Why Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">FAQ</a>
+                </li>
+              </ul>
+              <a href="sign-up.html" class="d-flex" role="search">
+                <button class="btn btn-primary" type="submit">Register</button>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
