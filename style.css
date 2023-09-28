@@ -151,24 +151,34 @@ header {
   padding: 0 !important;
 }
 
+/* services */
+.best-car-rental {
+  margin: 5rem;
+}
+
 /* Testimonial Styles */
+
+.carousel-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: rgba(241, 243, 255, 1);
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+  display: flex;
+}
+
+/* testimonial card content */
 .img-testimonial {
   width: 5rem;
   height: 5rem;
   flex-shrink: 0;
 }
 .testimonial {
-  width: 36rem;
-  height: 16.875rem;
-  flex-shrink: 0;
-  border-radius: 0.5rem;
-  background: #f1f3ff;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  align-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .wrapper-testimonial-content {
@@ -179,61 +189,22 @@ header {
   font-weight: 400;
 }
 
-/* Testimonial Container */
-.testimonial-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+/* testimonial control */
+.button-previous,
+.button-next {
+  background: none;
+  border: none;
 }
 
-/* Apply overflow hidden to the first and third testimonials */
-.testimonial-container .testimonial:first-child,
-.testimonial-container .testimonial:nth-child(3) {
-  overflow: hidden;
-  position: relative;
-}
-
-/* Adjust the width of the testimonials to make space for hidden content */
-.testimonial-container .testimonial:first-child,
-.testimonial-container .testimonial:nth-child(3) {
-  width: 25.5%;
-}
-
-.first-testimonial {
-  position: relative;
-  right: 100px;
-}
-
-.third-testimonial {
-  position: relative;
-  left: 120px;
-}
-
-/* Your existing CSS styles here */
-
-/* Custom Carousel Control Styles */
-.custom-carousel-control-prev,
-.custom-carousel-control-next {
-  background: transparent; /* Transparent background */
-  border: none; /* Remove border */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* .custom-carousel-control-prev img,
-.custom-carousel-control-next img {
-  width: 100%; 
-  height: auto; 
-}
-
-.custom-carousel-control-prev:hover,
-.custom-carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+/* .button-next:hover svg,
+.button-previous:hover svg {
+  fill: #5cb85f;
 } */
 
+/* ---- button-row ---- */
+.button-row {
+  text-align: center;
+}
 /* CTA Styles */
 .cta {
   background: var(--primary-darkblue04);
@@ -287,12 +258,13 @@ header {
 /* responsive style*/
 @media only screen and (max-width: 600px) {
   .gambar-jumbotron {
-    width: 21.5135rem;
-    height: 12.4375rem;
+    width: 22rem;
+    height: 13rem;
   }
   .image-service {
     width: 15.75rem;
     height: 14.25rem;
+    margin-bottom: 32px;
   }
   .card-body {
     width: 100%;
@@ -301,8 +273,16 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 90%;
+    max-width: 95%;
     gap: 2rem;
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+  .judul {
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 3.375rem */
   }
   .cta-heading,
   .cta-body {
@@ -310,6 +290,28 @@ header {
   }
   footer {
     margin: 32px;
+  }
+  .carousel-cell {
+    width: 100%;
+    height: auto;
+  }
+  .testimonial-card {
+    flex-direction: column;
+    height: auto;
+    padding: 2.5rem 2rem;
+    align-items: center;
+  }
+  .wrapper-testimonial-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20rem;
+  }
+  .nav-footer-wrapper {
+    padding-left: 16px;
+  }
+  .best-car-rental {
+    margin: 3rem 1rem;
   }
 }
 

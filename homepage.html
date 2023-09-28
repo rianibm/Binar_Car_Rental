@@ -18,6 +18,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -93,7 +98,9 @@
         <div class="container">
           <div class="row flex-sm-row align-items-center">
             <div class="col-lg-6 col-sm-12">
-              <h1>Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+              <h1 class="judul">
+                Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
+              </h1>
               <p class="section-desc">
                 Selamat datang di Binar Car Rental. Kami menyediakan mobil
                 kualitas terbaik dengan harga terjangkau. Selalu siap melayani
@@ -114,7 +121,7 @@
           </div>
         </div>
       </section>
-      <section class="best-car-rental m-5">
+      <section class="best-car-rental">
         <div class="row">
           <div class="col-lg-6 col-sm-12">
             <!-- gambar -->
@@ -124,8 +131,12 @@
               class="image-service"
             />
           </div>
-          <div class="col-lg-6 col-sm-12">
-            <h3>Best Car Rental for any kind of trip in (Lokasimu)!</h3>
+          <div
+            class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center"
+          >
+            <h3 class="mb-4">
+              Best Car Rental for any kind of trip in (Lokasimu)!
+            </h3>
             <p class="section-desc">
               Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
               lebih murah dibandingkan yang lain, kondisi mobil baru, serta
@@ -255,178 +266,183 @@
         </p>
         <!-- testimonial cards -->
         <div
-          id="testimonial-carousel"
-          class="carousel slide"
-          data-bs-ride="carousel"
+          class="carousel"
+          data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'
         >
-          <!-- Slides -->
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="testimonial-container">
-                <!-- Testimonial 1 -->
-                <div class="testimonial">
-                  <div class="d-flex gap-3 first-testimonial">
+          <div class="carousel-cell">
+            <div class="testimonial">
+              <div class="d-flex gap-3 testimonial-card">
+                <img
+                  src="https://i.ibb.co/ZY8pbYZ/img-photo.png"
+                  alt="img-photo"
+                  class="img-testimonial"
+                />
+                <div class="wrapper-testimonial-content">
+                  <div class="d-flex gap-2">
                     <img
-                      src="https://i.ibb.co/ZY8pbYZ/img-photo.png"
-                      alt="img-photo"
-                      class="img-testimonial"
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
                     />
-                    <div class="wrapper-testimonial-content">
-                      <div class="d-flex gap-2">
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                      </div>
-                      <p class="testimonial-content-body">
-                        “Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do eiusmod lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod”
-                      </p>
-                      <p class="testimonial-source">John Dee 32, Bromo</p>
-                    </div>
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
                   </div>
+                  <p class="testimonial-content-body">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod”
+                  </p>
+                  <p class="testimonial-source">John Dee 32, Bromo</p>
                 </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial">
-                  <div class="d-flex gap-3">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div class="testimonial">
+              <div class="d-flex gap-3 testimonial-card">
+                <img
+                  src="https://i.ibb.co/ZY8pbYZ/img-photo.png"
+                  alt="img-photo"
+                  class="img-testimonial"
+                />
+                <div class="wrapper-testimonial-content">
+                  <div class="d-flex gap-2">
                     <img
-                      src="https://i.ibb.co/ZY8pbYZ/img-photo.png"
-                      alt="img-photo"
-                      class="img-testimonial"
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
                     />
-                    <div class="wrapper-testimonial-content">
-                      <div class="d-flex gap-2">
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                      </div>
-                      <p class="testimonial-content-body">
-                        “Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do eiusmod lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod”
-                      </p>
-                      <p class="testimonial-source">John Dee 32, Bromo</p>
-                    </div>
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
                   </div>
+                  <p class="testimonial-content-body">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod”
+                  </p>
+                  <p class="testimonial-source">John Dee 32, Bromo</p>
                 </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial">
-                  <div class="d-flex gap-3 third-testimonial">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div class="testimonial">
+              <div class="d-flex gap-3 testimonial-card">
+                <img
+                  src="https://i.ibb.co/ZY8pbYZ/img-photo.png"
+                  alt="img-photo"
+                  class="img-testimonial"
+                />
+                <div class="wrapper-testimonial-content">
+                  <div class="d-flex gap-2">
                     <img
-                      src="https://i.ibb.co/8sQtjRZ/img-photo2.png"
-                      alt="img-photo2"
-                      class="img-testimonial"
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
                     />
-                    <div class="wrapper-testimonial-content">
-                      <div class="d-flex gap-2">
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                        <img
-                          src="https://i.ibb.co/TBPJ5JB/star-icon.png"
-                          alt="star-icon"
-                        />
-                      </div>
-                      <p class="testimonial-content-body">
-                        “Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do eiusmod lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod”
-                      </p>
-                      <p class="testimonial-source">John Dee 32, Bromo</p>
-                    </div>
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
+                    <img
+                      src="https://i.ibb.co/TBPJ5JB/star-icon.png"
+                      alt="star-icon"
+                    />
                   </div>
+                  <p class="testimonial-content-body">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod”
+                  </p>
+                  <p class="testimonial-source">John Dee 32, Bromo</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Controls Container -->
-        <div
-          class="d-flex gap-3 justify-content-center mt-3 carousel-controls-container text-center"
-        >
-          <a
-            class="custom-carousel-control-prev"
-            href="#testimonial-carousel"
-            role="button"
-            data-bs-slide="prev"
-          >
-            <img
-              src="https://i.ibb.co/4FLk0wh/Left-button.png"
-              alt="Left-button"
-              border="0"
-            />
-          </a>
-          <a
-            class="custom-carousel-control-next"
-            href="#testimonial-carousel"
-            role="button"
-            data-bs-slide="next"
-          >
-            <img
-              src="https://i.ibb.co/wBsjnb5/Right-button.png"
-              alt="Right-button"
-            />
-          </a>
+        <div class="button-row mt-4">
+          <button class="button-previous">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="16" cy="16" r="15.5" fill="white" stroke="#C4C4C4" />
+              <path
+                d="M18.5 21L13.5 16L18.5 11"
+                stroke="#222222"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button class="button-next">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="16" cy="16" r="16" fill="#5CB85F" />
+              <rect
+                width="20"
+                height="20"
+                transform="translate(6 6)"
+                fill="#5CB85F"
+              />
+              <path
+                d="M13.5 21L18.5 16L13.5 11"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </section>
 
-      <section class="cta p-4 p-lg-5 container rounded-3 mt-5">
+      <section class="cta p-5 container rounded-3 my-5">
         <div class="row">
           <div class="col-lg-12">
             <div class="col-md-10 offset-md-1 col-12 mx-auto">
@@ -449,7 +465,7 @@
         </div>
       </section>
 
-      <section class="faq mb-lg-5 mt-lg-4">
+      <section class="faq mb-lg-5 mt-4">
         <!-- faq -->
         <div class="faq_area" id="faq">
           <div class="container">
@@ -745,6 +761,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
