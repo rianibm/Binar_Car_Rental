@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <!-- datepicker, timepicker -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="custom-header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://i.ibb.co/M5t4WTk/copyright.png"
+              alt="logo"
+              border="0"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="custom-navbar-collapse" id="navbarSupportedContent">
+            <!-- Use a custom class for styling -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Our Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+            </ul>
+            <a href="#" class="d-flex" role="search">
+              <button class="btn btn-primary" type="submit">Register</button>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-cari-mobil">
+      <section
+        class="jumbotron"
+        style="background-color: hsla(231, 100%, 97%, 1)"
+      >
+        <div class="row container d-flex align-items-center ms-5">
+          <div class="col-6">
+            <h1>Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+            <p class="section-desc">
+              Selamat datang di Binar Car Rental. Kami menyediakan mobil
+              kualitas terbaik dengan harga terjangkau. Selalu siap melayani
+              kebutuhanmu untuk sewa mobil selama 24 jam.
+            </p>
+          </div>
+          <div class="col-6">
+            <!-- gambar -->
+            <img
+              src="https://i.ibb.co/HK8Nqnm/img-car.png"
+              alt="img-car"
+              class="gambar-jumbotron"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="search-floating">
+        <form class="d-flex gap-3 p-3">
+          <!-- dropdown select -->
+          <div class="dropdown">
+            <h6>Tipe Driver</h6>
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Pilih Tipe Driver
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Dengan Sopir</a></li>
+              <li>
+                <a class="dropdown-item" href="#">Tanpa Sopir (Lepas Kunci)</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- datepicker select -->
+          <div class="d-flex flex-column">
+            <h6>Tanggal</h6>
+            <input type="text" id="datepicker" placeholder="Pilih Tanggal" />
+          </div>
+          <!-- <span class="calendar-icon"> -->
+          <!-- <iconify-icon icon="carbon:calendar"></iconify-icon> -->
+          <!-- </span> -->
+
+          <!-- time-picker select -->
+          <div class="d-flex flex-column">
+            <h6>Waktu Jemput/Ambil</h6>
+            <input
+              type="text"
+              id="timepicker"
+              placeholder="Pilih Waktu"
+              readonly
+            />
+          </div>
+
+          <!-- quantity -->
+          <div class="d-flex flex-column">
+            <label for="quantity">Jumlah Pengunjung (opsional)</label>
+            <input
+              type="number"
+              id="quantity"
+              class=""
+              value="0"
+              placeholder="Jumlah Pengunjung"
+              oninput="this.value = Math.max(0, this.value)"
+            />
+          </div>
+
+          <button class="btn btn-primary">Cari Mobil</button>
+        </form>
+      </section>
+      <footer class="container">
+        <div class="row">
+          <div class="col-3 info-binar">
+            <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+            <p>binarcarrental@gmail.com</p>
+            <p>081-233-334-808</p>
+          </div>
+          <div class="col-3">
+            <ul class="nav-footer-wrapper">
+              <li>
+                <a href="#" class="nav-footer">Our Service</a>
+              </li>
+              <li>
+                <a href="#" class="nav-footer">Why US</a>
+              </li>
+              <li>
+                <a href="#" class="nav-footer">Testimonials</a>
+              </li>
+              <li>
+                <a href="#" class="nav-footer">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <p>Connect with us</p>
+            <!-- medsos -->
+            <div class="d-flex gap-3">
+              <img
+                src="https://i.ibb.co/3N0D4gj/icon-facebook.png"
+                alt="icon-facebook"
+              />
+              <img
+                src="https://i.ibb.co/yNH65rT/icon-instagram.png"
+                alt="icon-instagram"
+              />
+              <img
+                src="https://i.ibb.co/hysbW9K/icon-twitter.png"
+                alt="icon-twitter"
+              />
+              <img
+                src="https://i.ibb.co/2kVHg09/icon-mail.png"
+                alt="icon-mail"
+              />
+              <img
+                src="https://i.ibb.co/c8NGRgg/icon-twitch.png"
+                alt="icon-twitch"
+              />
+            </div>
+          </div>
+          <div class="col-3">
+            <p>Copyright Binar 2022</p>
+            <!-- ornamen -->
+            <img src="https://i.ibb.co/M5t4WTk/copyright.png" alt="copyright" />
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div class="container"></div>
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- icon -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <!-- datepicker -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#datepicker", {
+          enableTime: false,
+          dateFormat: "Y-m-d",
+        });
+
+        flatpickr("#timepicker", {
+          enableTime: true,
+          noCalendar: true,
+          time_24hr: true,
+          dateFormat: "H:i",
+          utc: true,
+          defaultDate: null,
+        });
+      });
+    </script>
+  </body>
+</html>

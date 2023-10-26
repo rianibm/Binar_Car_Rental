@@ -279,3 +279,36 @@ header {
   font-weight: 400;
   line-height: 1.25rem; /* 142.857% */
 }
+
+/* cari mobil */
+.container-cari-mobil {
+  position: relative;
+}
+
+.container-cari-mobil .jumbotron {
+  z-index: 1;
+}
+
+.container-cari-mobil .search-floating {
+  z-index: 2;
+  width: 1047px;
+  height: 106px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 8px;
+  background: var(--neutral-01, #fff);
+
+  /* Shadow/High */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  left: 90px;
+  top: -30px;
+}
+
+.search-floating form {
+  display: flex;
+}
+
+.container-cari-mobil footer {
+  z-index: 3;
+  margin-top: 108px;
+}
