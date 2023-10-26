@@ -18,7 +18,7 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header class="custom-header">
@@ -90,31 +90,28 @@
           </div>
         </div>
       </section>
+
       <section class="search-floating">
         <form class="d-flex gap-3 p-3">
           <!-- dropdown select -->
           <div class="dropdown">
             <h6>Tipe Driver</h6>
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Pilih Tipe Driver
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Dengan Sopir</a></li>
-              <li>
-                <a class="dropdown-item" href="#">Tanpa Sopir (Lepas Kunci)</a>
-              </li>
-            </ul>
+            <select id="driver" class="form-select" required>
+              <option value="" disabled selected>Pilih Tipe Driver</option>
+              <option value="dengan-sopir">Dengan Sopir</option>
+              <option value="tanpa-sopir">Tanpa Sopir (Lepas Kunci)</option>
+            </select>
           </div>
 
           <!-- datepicker select -->
           <div class="d-flex flex-column">
             <h6>Tanggal</h6>
-            <input type="text" id="datepicker" placeholder="Pilih Tanggal" />
+            <input
+              type="text"
+              id="datepicker"
+              placeholder="Pilih Tanggal"
+              required
+            />
           </div>
           <!-- <span class="calendar-icon"> -->
           <!-- <iconify-icon icon="carbon:calendar"></iconify-icon> -->
@@ -127,7 +124,7 @@
               type="text"
               id="timepicker"
               placeholder="Pilih Waktu"
-              readonly
+              required
             />
           </div>
 
@@ -147,6 +144,17 @@
           <button class="btn btn-primary">Cari Mobil</button>
         </form>
       </section>
+
+      <!-- Daftar Mobil Tersedia -->
+      <div class="container">
+        <div
+          class="row row-cols-auto row-gap-3 column-gap-3 justify-content-start"
+          id="cars-container"
+        >
+          <!-- Data JSON -->
+        </div>
+      </div>
+
       <footer class="container">
         <div class="row">
           <div class="col-3 info-binar">
@@ -238,5 +246,6 @@
         });
       });
     </script>
+    <script src="js/index.js"></script>
   </body>
 </html>
