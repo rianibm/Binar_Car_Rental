@@ -3,7 +3,7 @@ class App {
     this.filterByDriver = document.getElementById("driver");
     this.filterByDate = document.getElementById("datepicker");
     this.filterByTime = document.getElementById("timepicker");
-    this.filterByCapacity = document.getElementById("quantity");
+    this.filterByCapacity = document.getElementById("capacity");
     // this.clearButton = document.getElementById("clear-btn");
     this.searchButton = document.getElementById("search-btn");
     this.carContainerElement = document.getElementById("cars-container");
@@ -22,18 +22,18 @@ class App {
     const datepicker = Date.parse(
       this.filterByDate.value + "T" + this.filterByTime.value
     );
-    const quantity = this.filterByCapacity.value;
+    const capacity = this.filterByCapacity.value;
 
     Car.list.forEach((car) => {
-      if (this.isCarAvailable(car, datepicker, quantity)) {
+      if (this.isCarAvailable(car, datepicker, capacity)) {
         this.renderCar(car);
       }
     });
   }
 
-  isCarAvailable(car, datepicker, quantity) {
+  isCarAvailable(car, datepicker, capacity) {
     const carDate = Date.parse(car.availableAt);
-    return carDate >= datepicker && car.capacity >= quantity;
+    return carDate >= datepicker && car.capacity >= capacity;
   }
 
   renderCar(car) {
