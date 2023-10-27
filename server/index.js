@@ -1,10 +1,10 @@
-// console.log("Implement servermu disini yak 😝!");
 const http = require("http");
 const { PORT = 8000 } = process.env;
-
 const fs = require("fs");
 const path = require("path");
-const PUBLIC_DIRECTORY = path.join(__dirname, "../public");
+
+const PUBLIC_DIRECTORY = path.join(__dirname, "..", "public");
+const DATA_DIRECTORY = path.join(__dirname, "data");
 
 function getHTML(htmlFileName) {
   const htmlFilePath = path.join(PUBLIC_DIRECTORY, htmlFileName);
@@ -19,6 +19,11 @@ function getCSS(cssFileName) {
 function getJS(jsFileName) {
   const jsFilePath = path.join(PUBLIC_DIRECTORY, jsFileName);
   return fs.readFileSync(jsFilePath, "UTF-8");
+}
+
+function getJSON(jsonFileName) {
+  const jsonFilePath = path.join(DATA_DIRECTORY, jsonFileName);
+  return fs.readFileSync(jsonFilePath, "UTF-8");
 }
 
 function getImage(imageFileName) {
@@ -42,11 +47,14 @@ function onRequest(req, res) {
   } else if (req.url === "/") {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(getHTML("homepage.html"));
-  } else if (req.url === "/cars") {
-    // console.log("Mengakses file:", htmlFilePath);
+  } else if (req.url === "/cariMobil.html") {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(getHTML("cariMobil.html"));
+  } else if (req.url === "/cars.min.json") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(getJSON("cars.min.json"));
   } else {
+    console.log("File not found: " + req.url);
     res.writeHead(404, { "Content-Type": "text/html" });
     res.end(getHTML("404-error.html"));
   }
