@@ -3,37 +3,30 @@ class App {
     this.filterByDriver = document.getElementById("driver");
     this.filterByDate = document.getElementById("datepicker");
     this.filterByTime = document.getElementById("timepicker");
-    this.filterByCapacity = document.getElementById("capacity");
-    // this.clearButton = document.getElementById("clear-btn");
+    this.filterByCapacity = document.getElementById("quantity");
+    this.clearButton = document.getElementById("clear-btn");
     this.searchButton = document.getElementById("search-btn");
     this.carContainerElement = document.getElementById("cars-container");
   }
 
   async init() {
     await this.load();
-
     // Register click listeners
     // this.clearButton.onclick = this.clear.bind(this);
-    this.searchButton.onclick = this.run.bind(this);
+    // this.searchButton.onclick = this.run.bind(this);
   }
 
-  run() {
-    this.clear();
-    const datepicker = Date.parse(
-      this.filterByDate.value + "T" + this.filterByTime.value
-    );
-    const capacity = this.filterByCapacity.value;
-
+  run = () => {
     Car.list.forEach((car) => {
-      if (this.isCarAvailable(car, datepicker, capacity)) {
-        this.renderCar(car);
-      }
+      const node = document.createElement("div");
+      node.innerHTML = car.render();
+      this.carContainerElement.appendChild(node);
     });
-  }
+  };
 
-  isCarAvailable(car, datepicker, capacity) {
+  isCarAvailable(car, datepicker, quantity) {
     const carDate = Date.parse(car.availableAt);
-    return carDate >= datepicker && car.capacity >= capacity;
+    return carDate >= datepicker && car.capacity >= quantity;
   }
 
   renderCar(car) {

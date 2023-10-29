@@ -312,3 +312,22 @@ header {
   z-index: 3;
   margin-top: 108px;
 }
+
+/* input field */
+select:focus,
+select:active,
+input:focus,
+input:active {
+  border-color: var(--primary-limegreen04) !important;
+  box-shadow: 0 0 5px var(--primary-limegreen04) !important;
+}
+
+.search-floating h6,
+label[for="capacity"] {
+  color: var(--neutral-04, #3c3c3c);
+
+  /* Text S/Light */
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px; /* 150% */
+}
