@@ -4,8 +4,10 @@ import {
   createCar,
   updateCar,
   deleteCar,
+  getCarById, // Added getCarById handler
+  getCarBySize, // Added getCarBySize handler
 } from "../handlers/carHandlers";
-import { upload } from "../middlewares/uploadMiddleware"; // Perbaiki path ke file middleware
+import { upload } from "../middlewares/uploadMiddleware";
 
 const router = express.Router();
 
@@ -20,5 +22,11 @@ router.put("/car/:id", upload.single("image"), updateCar);
 
 // Delete a car
 router.delete("/car/:id", deleteCar);
+
+// Get a car by ID
+router.get("/car/:id", getCarById);
+
+// Get cars by size
+router.get("/cars/size/:size", getCarBySize);
 
 export default router;

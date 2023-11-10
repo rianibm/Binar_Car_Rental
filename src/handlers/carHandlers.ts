@@ -69,3 +69,35 @@ export async function deleteCar(req: Request, res: Response): Promise<void> {
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
+
+export async function getCarById(req: Request, res: Response): Promise<void> {
+  const { id } = req.params;
+
+  try {
+    const car = await Car.query().findById(id);
+    if (!car) {
+      res.status(404).json({ error: "Car not found" });
+    } else {
+      res.json(car);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+export async function getCarBySize(req: Request, res: Response): Promise<void> {
+  const { size } = req.params;
+
+  try {
+    const cars = await Car.query().where("size", size);
+    if (cars.length === 0) {
+      res.status(404).json({ error: "No cars found for the specified size" });
+    } else {
+      res.json(cars);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
