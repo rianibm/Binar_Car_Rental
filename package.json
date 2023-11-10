@@ -2,12 +2,12 @@
   "name": "binar_car_rental",
   "version": "1.0.0",
   "description": "ERD: https://dbdiagram.io/d/Challenge-5-Riani-654dbb8f7d8bbd6465e676ab",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node-dev ./src/index.ts",
+    "start": "node dist/app.js",
+    "dev": "ts-node-dev ./src/app.ts",
     "migrate": "knex migrate:latest --knexfile knexfile.ts",
     "seed": "knex seed:run --knexfile knexfile.ts"
   },
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/knex": "^0.16.1"
+    "@types/knex": "^0.16.1",
+    "ts-node-dev": "^2.0.0"
   }
 }
