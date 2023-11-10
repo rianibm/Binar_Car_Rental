@@ -9,6 +9,6 @@ export async function seed(knex: Knex): Promise<void> {
   // Read data from the JSON file
   const data = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
 
-  // Insert the records into the "cars" table
-  await knex("cars").insert(data);
+  // Insert the records into the "car" table
+  await knex("car").insert(data);
 }

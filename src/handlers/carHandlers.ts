@@ -5,8 +5,8 @@ import Car from "../models/Car";
 
 export async function getCarList(req: Request, res: Response): Promise<void> {
   try {
-    const cars = await Car.query(); // Mengambil semua data mobil dari database
-    res.json(cars);
+    const car = await Car.query(); // Mengambil semua data mobil dari database
+    res.json(car);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });

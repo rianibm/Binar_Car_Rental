@@ -10,15 +10,15 @@ import { upload } from "../middlewares/uploadMiddleware"; // Perbaiki path ke fi
 const router = express.Router();
 
 // Get all cars
-router.get("/cars", getCarList);
+router.get("/car", getCarList);
 
 // Create a new car
-router.post("/cars", upload.single("image"), createCar);
+router.post("/car", upload.single("image"), createCar);
 
 // Update a car
-router.put("/cars/:id", upload.single("image"), updateCar);
+router.put("/car/:id", upload.single("image"), updateCar);
 
 // Delete a car
-router.delete("/cars/:id", deleteCar);
+router.delete("/car/:id", deleteCar);
 
 export default router;

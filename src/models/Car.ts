@@ -7,7 +7,7 @@ Model.knex(knex);
 
 class Car extends Model {
   static get tableName() {
-    return "cars";
+    return "car";
   }
 
   id!: number;
