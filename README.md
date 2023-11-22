@@ -1,6 +1,3 @@
-# Binar_Car_Rental
-Challenge 1:
-Make landing page from figma file (not responsive yet)
-
-Challenge 2:
-Make the landing page from previous challenge be responsive in mobile breakpoint
+# Binar_Car_Rental: Car Management Dashboard
+ERD:
+https://dbdiagram.io/d/Challenge-5-Riani-654dbb8f7d8bbd6465e676ab

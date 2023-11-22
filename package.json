@@ -1,0 +1,37 @@
+{
+  "name": "binar_car_rental",
+  "version": "1.0.0",
+  "description": "ERD: https://dbdiagram.io/d/Challenge-5-Riani-654dbb8f7d8bbd6465e676ab",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node-dev ./src/app.ts",
+    "migrate": "knex migrate:latest --knexfile knexfile.ts",
+    "seed": "knex seed:run --knexfile knexfile.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.10",
+    "@types/node": "^20.9.0",
+    "cloudinary": "^1.41.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "knex": "^3.0.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "objection": "^3.1.2",
+    "pg": "^8.11.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/knex": "^0.16.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}
