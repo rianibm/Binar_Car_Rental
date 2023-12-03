@@ -29,6 +29,6 @@
     "allowUnusedLabels": true,
     "allowUnreachableCode": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "./type.d.ts"],
   "exclude": ["node_modules"]
 }

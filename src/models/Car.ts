@@ -6,7 +6,7 @@ const knex = Knex(knexConfig.development);
 Model.knex(knex);
 
 class Car extends Model {
-  static get tableName() {
+  static override get tableName() {
     return "car";
   }
 
@@ -18,7 +18,7 @@ class Car extends Model {
   created_at?: string;
   updated_at?: string;
 
-  $formatJson(json: Pojo) {
+  override $formatJson(json: Pojo) {
     json = super.$formatJson(json);
     return json;
   }

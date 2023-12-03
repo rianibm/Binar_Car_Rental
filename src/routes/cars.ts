@@ -1,30 +1,31 @@
+// src/routes/cars.ts
 import express from "express";
 import {
   getCarList,
   createCar,
   updateCar,
   deleteCar,
-  getCarById, // Added getCarById handler
-  getCarBySize, // Added getCarBySize handler
+  getCarById,
+  getCarBySize,
 } from "../handlers/carHandlers";
 import { upload } from "../middlewares/uploadMiddleware";
 
 const router = express.Router();
 
 // Get all cars
-router.get("/car", getCarList);
+router.get("/cars", getCarList);
 
 // Create a new car
-router.post("/car", upload.single("image"), createCar);
+router.post("/cars", upload.single("image"), createCar);
 
 // Update a car
-router.put("/car/:id", upload.single("image"), updateCar);
+router.put("/cars/:id", upload.single("image"), updateCar);
 
 // Delete a car
-router.delete("/car/:id", deleteCar);
+router.delete("/cars/:id", deleteCar);
 
 // Get a car by ID
-router.get("/car/:id", getCarById);
+router.get("/cars/:id", getCarById);
 
 // Get cars by size
 router.get("/cars/size/:size", getCarBySize);
