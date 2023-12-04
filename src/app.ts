@@ -1,19 +1,26 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import express from "express";
 import carRoute from "./routes/cars";
-import dbSetup from "../config/databaseConfig";
+// import dbSetup from "../config/databaseConfig";
+import { json, urlencoded } from "body-parser";
+import { Model } from "objection";
 
-dbSetup();
-dotenv.config({ path: "../.env" });
-dotenv.config();
+import authRoutes from "./routes/authRoutes";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env["PORT"] || 3000;
 
-app.use(express.json());
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
-app.use("/", carRoute); // Mount the carRoute under '/api'
+// Use ObjectionJS models
+Model.knex(require("knex")(require("./knexfile")));
 
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+// Define routes
+app.use("/cars", carRoute);
+app.use("/auth", authRoutes);
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

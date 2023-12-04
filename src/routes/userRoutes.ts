@@ -1,8 +1,6 @@
-// src/routes/userRoutes.ts
 import express, { Response } from "express";
 import passport from "../auth/auth";
-import User from "../models/User";
-import { ExtendedRequest } from "../types";
+import { ExtendedRequest } from "../type";
 
 const router = express.Router();
 

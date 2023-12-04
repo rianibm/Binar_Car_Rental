@@ -1,15 +1,16 @@
-// src/routes/adminRoutes.ts
 import express from "express";
 import passport from "../auth/auth";
+import { ExtendedRequest } from "../type";
 
 const router = express.Router();
 
 router.post(
   "/add-admin",
   passport.authenticate("jwt", { session: false }),
-  (req, res) => {
+  (req: ExtendedRequest, res) => {
+    // Add the type for user in the request
     // Logic to add admin (superadmin only)
-    if (req.user.role === "superadmin") {
+    if (req.user && req.user.role === "superadmin") {
       // Add admin logic here
       res.json({ message: "Admin added successfully" });
     } else {

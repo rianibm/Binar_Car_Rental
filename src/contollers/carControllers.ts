@@ -32,7 +32,7 @@ class CarController {
   async getCarById(req: Request, res: Response) {
     try {
       // Logic to get a car by ID
-      const carId = req.params.id;
+      const carId = req.params["id"];
       const car = await Car.query().findById(carId);
       res.json(car);
     } catch (error) {
@@ -45,12 +45,18 @@ class CarController {
     try {
       // Logic to update a car by ID
       const carId = req.params.id;
-      // Include information about the last updater
-      const lastUpdatedBy = req.user.username;
-      const carData = { ...req.body, lastUpdatedBy };
+      const loggedInUser = req.user;
 
-      const updatedCar = await Car.query().patchAndFetchById(carId, carData);
-      res.json(updatedCar);
+      if (loggedInUser && loggedInUser.role === "admin") {
+        // Only admin can update the car
+        const lastUpdatedBy = loggedInUser.username;
+        const carData = { ...req.body, lastUpdatedBy };
+
+        const updatedCar = await Car.query().patchAndFetchById(carId, carData);
+        res.json(updatedCar);
+      } else {
+        res.status(403).json({ message: "Access forbidden" });
+      }
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
@@ -61,11 +67,17 @@ class CarController {
     try {
       // Logic to delete a car by ID
       const carId = req.params.id;
-      // Include information about the deleter
-      const deletedBy = req.user.username;
+      const loggedInUser = req.user;
 
-      const deletedCar = await Car.query().deleteById(carId).returning("*");
-      res.json({ message: "Car deleted successfully", deletedCar });
+      if (loggedInUser && loggedInUser.role === "admin") {
+        // Only admin can delete the car
+        const deletedBy = loggedInUser.username; // Use optional chaining
+
+        const deletedCar = await Car.query().deleteById(carId).returning("*");
+        res.json({ message: "Car deleted successfully", deletedCar });
+      } else {
+        res.status(403).json({ message: "Access forbidden" });
+      }
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
