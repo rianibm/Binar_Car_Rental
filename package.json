@@ -8,6 +8,7 @@
     "build": "npx tsc",
     "start": "node dist/app.js",
     "dev": "ts-node-dev ./src/app.ts",
+    "knex": "knex",
     "migrate": "knex migrate:latest --knexfile knexfile.ts",
     "seed": "knex seed:run --knexfile knexfile.ts",
     "generate-secret-key": "node generateSecretKey.mjs"
