@@ -1,8 +1,21 @@
 import { Model, Pojo } from "objection";
 import Knex from "knex";
+import dotenv from "dotenv";
 
-const knexConfig = require("../../knexfile"); // Import your Knex configuration
-const knex = Knex(knexConfig.development);
+// Load environment variables from .env file
+dotenv.config();
+
+// Configure Knex using environment variables
+const knex = Knex({
+  client: "postgresql",
+  connection: {
+    host: process.env["DB_HOST"] || "localhost",
+    user: process.env["DB_USER"] || "macbook",
+    password: process.env["DB_PASSWORD"] || "12345",
+    database: process.env["DB_NAME"] || "postgres",
+  },
+});
+
 Model.knex(knex);
 
 class Car extends Model {
@@ -17,6 +30,7 @@ class Car extends Model {
   image!: string;
   created_at?: string;
   updated_at?: string;
+  deleted_at?: string; // Add deleted_at property
 
   override $formatJson(json: Pojo) {
     json = super.$formatJson(json);

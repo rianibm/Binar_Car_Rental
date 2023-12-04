@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2018", // Sesuaikan target dengan versi JavaScript yang Anda inginkan.
+    "target": "es2018",
     "module": "commonjs",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -10,7 +10,7 @@
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "noImplicitAny": true, // Aktifkan jika Anda ingin menerapkan kebijakan noImplicitAny.
+    "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
@@ -29,6 +29,6 @@
     "allowUnusedLabels": true,
     "allowUnreachableCode": true
   },
-  "include": ["src/**/*.ts", "src/type.d.ts"],
+  "include": ["src/**/*.ts", "src/type.d.ts", "config/cloudinary.ts"],
   "exclude": ["node_modules"]
 }
