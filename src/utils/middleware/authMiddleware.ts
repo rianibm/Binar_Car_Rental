@@ -3,7 +3,7 @@ import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
 import { Request, Response, NextFunction } from "express";
 
-import User from "../models/User";
+import User from "../../models/User"; // Adjust the path based on your project structure
 
 passport.use(
   new Strategy(
@@ -19,7 +19,7 @@ passport.use(
         if (!user) {
           return done(null, false);
         }
-        return done(null, user);
+        return done(null, user.id); // Assuming user.id is a number
       } catch (error) {
         return done(error, false);
       }
@@ -32,7 +32,7 @@ export const authenticate = (
   res: Response,
   next: NextFunction
 ) => {
-  passport.authenticate("jwt", { session: false }, (err, user) => {
+  passport.authenticate("jwt", { session: false }, (err: any, user: number) => {
     if (err || !user) {
       return res.status(401).json({ message: "Unauthorized" });
     }

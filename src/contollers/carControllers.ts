@@ -1,13 +1,24 @@
 // src/controllers/carController.ts
 import { Request, Response } from "express";
 import Car from "../models/Car";
+import User from "../models/User";
 
 class CarController {
   async createCar(req: Request, res: Response) {
     try {
-      // Logic to create a new car
-      // Include information about the creator
-      const createdBy = req.user.username;
+      const loggedInUser = req.user as User | undefined;
+
+      if (!loggedInUser) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+
+      // Pastikan hanya admin yang bisa membuat mobil
+      if (loggedInUser.role !== "admin") {
+        return res.status(403).json({ message: "Access forbidden" });
+      }
+
+      // Logic untuk membuat mobil
+      const createdBy = loggedInUser.username;
       const carData = { ...req.body, createdBy };
 
       const newCar = await Car.query().insert(carData);
@@ -32,7 +43,7 @@ class CarController {
   async getCarById(req: Request, res: Response) {
     try {
       // Logic to get a car by ID
-      const carId = req.params["id"];
+      const carId = Number(req.params["id"]);
       const car = await Car.query().findById(carId);
       res.json(car);
     } catch (error) {
@@ -44,19 +55,18 @@ class CarController {
   async updateCar(req: Request, res: Response) {
     try {
       // Logic to update a car by ID
-      const carId = req.params.id;
-      const loggedInUser = req.user;
+      const carId = Number(req.params["id"]);
+      const loggedInUser = req.user as User;
 
-      if (loggedInUser && loggedInUser.role === "admin") {
-        // Only admin can update the car
-        const lastUpdatedBy = loggedInUser.username;
-        const carData = { ...req.body, lastUpdatedBy };
-
-        const updatedCar = await Car.query().patchAndFetchById(carId, carData);
-        res.json(updatedCar);
-      } else {
-        res.status(403).json({ message: "Access forbidden" });
+      if (!loggedInUser || loggedInUser.role !== "admin") {
+        return res.status(403).json({ message: "Access forbidden" });
       }
+
+      const lastUpdatedBy = loggedInUser.username;
+      const carData = { ...req.body, lastUpdatedBy };
+
+      const updatedCar = await Car.query().patchAndFetchById(carId, carData);
+      res.json(updatedCar);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });
@@ -66,18 +76,17 @@ class CarController {
   async deleteCar(req: Request, res: Response) {
     try {
       // Logic to delete a car by ID
-      const carId = req.params.id;
-      const loggedInUser = req.user;
+      const carId = Number(req.params["id"]);
+      const loggedInUser = req.user as User;
 
-      if (loggedInUser && loggedInUser.role === "admin") {
-        // Only admin can delete the car
-        const deletedBy = loggedInUser.username; // Use optional chaining
-
-        const deletedCar = await Car.query().deleteById(carId).returning("*");
-        res.json({ message: "Car deleted successfully", deletedCar });
-      } else {
-        res.status(403).json({ message: "Access forbidden" });
+      if (!loggedInUser || loggedInUser.role !== "admin") {
+        return res.status(403).json({ message: "Access forbidden" });
       }
+
+      const deletedBy = loggedInUser.username;
+
+      const deletedCar = await Car.query().deleteById(carId).returning("*");
+      res.json({ message: "Car deleted successfully", deletedCar });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal Server Error" });

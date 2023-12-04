@@ -7,6 +7,8 @@ class User extends Model {
   username!: string;
   password!: string;
   role!: string; // Add your role property
+  created_at?: string;
+  updated_at?: string;
 
   static override tableName = "users";
 

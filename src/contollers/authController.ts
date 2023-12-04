@@ -24,10 +24,10 @@ class AuthController {
 
   async login(req: Request, res: Response) {
     try {
-      const user = req.user;
+      const user = req.user as User; // Use type assertion to tell TypeScript that user is a User
       const token = jsonwebtoken.sign(
         { sub: user.id },
-        process.env.JWT_SECRET ||
+        process.env["JWT_SECRET"] ||
           "359cd68a4d14425c1f752e8481714ed7c6f5ee5cd949d614e472bf76142d81f0",
         {
           expiresIn: "1h",
