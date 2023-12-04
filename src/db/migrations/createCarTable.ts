@@ -9,6 +9,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string("image");
     table.string("created_at");
     table.string("updated_at");
+    table.string("deletedBy");
   });
 }
 

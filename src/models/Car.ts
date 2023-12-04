@@ -30,7 +30,7 @@ class Car extends Model {
   image!: string;
   created_at?: string;
   updated_at?: string;
-  deleted_at?: string; // Add deleted_at property
+  deletedby?: string; // Add deleted_at property
 
   override $formatJson(json: Pojo) {
     json = super.$formatJson(json);
