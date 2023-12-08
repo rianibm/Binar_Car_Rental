@@ -1,0 +1,1 @@
+// Logika bisnis untuk gateway

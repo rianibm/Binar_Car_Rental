@@ -1,0 +1,1 @@
+// Model untuk entitas mobil
