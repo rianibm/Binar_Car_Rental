@@ -10,7 +10,7 @@ const AdminLogin: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   // const apiUrlBase = process.env.REACT_APP_API_BASE_URL;
-  const apiUrlBase = import.meta.env.REACT_APP_API_BASE_URL;
+  const apiUrlBase = import.meta.env.REACT_APP_API_BASE_URL || "";
 
   const handleLogin = async () => {
     try {
@@ -20,7 +20,7 @@ const AdminLogin: React.FC = () => {
       // const apiUrl = process.env.REACT_APP_API_URL + "/authenticate";
       const apiUrl = `${apiUrlBase}/authenticate`;
 
-      const response = await fetch(`${apiUrlBase}/authenticate`, {
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
