@@ -9,15 +9,17 @@ const AdminLogin: React.FC = () => {
     console.log("Received values:", values);
   };
   const onValuesChange = () => {
-    // Re-validate the form when values change
-    form.validateFields();
+    form.setFieldsValue({
+      email: form.getFieldValue("email"),
+      password: form.getFieldValue("password"),
+    });
   };
 
   return (
     <div className="flex gap-2 ">
       <img
-        src="/public/image/login-img.svg"
-        alt=""
+        src="/image/login-img.svg"
+        alt="Gambar Mobil Halaman Login"
         className="hidden md:block w-[67.1%] h-screen"
       />
       <div className="flex flex-col gap-2 justify-center mx-auto mt-[120px]">
