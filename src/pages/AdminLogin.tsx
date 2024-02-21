@@ -1,18 +1,50 @@
 // src/pages/AdminLogin.tsx
-import React from "react";
-import { Form, Input, Button } from "antd/lib";
+import React, { useState } from "react";
+import { Form, Input, Button, message } from "antd";
 import { useForm } from "antd/lib/form/Form";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin: React.FC = () => {
   const [form] = useForm();
-  const handleLogin = (values: any) => {
-    console.log("Received values:", values);
-  };
-  const onValuesChange = () => {
-    form.setFieldsValue({
-      email: form.getFieldValue("email"),
-      password: form.getFieldValue("password"),
-    });
+  const navigate = useNavigate();
+  const [/* loading */ setLoading] = useState(false);
+
+  const handleLogin = async (values: any) => {
+    try {
+      // setLoading(true);
+
+      // Get API URL from environment variable
+      const apiUrl = process.env.REACT_APP_API_URL + "/authenticate";
+
+      // Replace this with your actual API endpoint for authentication
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        // Assume the API returns user data including role
+        const userData = await response.json();
+
+        // Redirect based on user role
+        if (userData.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          // Show an error message for invalid roles
+          message.error("Invalid user role. Please try again.");
+        }
+      } else {
+        // Show an error message for invalid credentials
+        message.error("Invalid credentials. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    } finally {
+      // setLoading(false);
+    }
   };
 
   return (
@@ -34,7 +66,7 @@ const AdminLogin: React.FC = () => {
           size="large"
           initialValues={{ remember: true }}
           onFinish={handleLogin}
-          onValuesChange={onValuesChange}
+          // onValuesChange={onValuesChange}
           className="font-helvetica"
           style={{ maxWidth: "300px", margin: "auto" }}
         >
