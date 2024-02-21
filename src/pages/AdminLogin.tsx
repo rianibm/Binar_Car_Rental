@@ -7,45 +7,55 @@ import { useNavigate } from "react-router-dom";
 const AdminLogin: React.FC = () => {
   const [form] = useForm();
   const navigate = useNavigate();
-  const [/* loading */ setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (values: any) => {
+  // const apiUrlBase = process.env.REACT_APP_API_BASE_URL;
+  const apiUrlBase = import.meta.env.REACT_APP_API_BASE_URL;
+
+  const handleLogin = async () => {
     try {
-      // setLoading(true);
+      setLoading(true);
 
-      // Get API URL from environment variable
-      const apiUrl = process.env.REACT_APP_API_URL + "/authenticate";
+      const formValues = await form.validateFields();
+      // const apiUrl = process.env.REACT_APP_API_URL + "/authenticate";
+      const apiUrl = `${apiUrlBase}/authenticate`;
 
-      // Replace this with your actual API endpoint for authentication
-      const response = await fetch(apiUrl, {
+      const response = await fetch(`${apiUrlBase}/authenticate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify(formValues),
       });
 
       if (response.ok) {
-        // Assume the API returns user data including role
         const userData = await response.json();
 
-        // Redirect based on user role
         if (userData.role === "admin") {
+          const userResponse = await fetch(
+            `${apiUrlBase}/users/${formValues.email}`
+          );
+          const userData = await userResponse.json();
+
           navigate("/admin-dashboard");
         } else {
-          // Show an error message for invalid roles
-          message.error("Invalid user role. Please try again.");
+          message.error(
+            "Invalid user role. You are not authorized to access this site."
+          );
         }
       } else {
-        // Show an error message for invalid credentials
         message.error("Invalid credentials. Please try again.");
       }
     } catch (error) {
       console.error("Error during login:", error);
     } finally {
-      // setLoading(false);
+      setLoading(false);
     }
   };
+
+  // Check if the email and password fields are not empty
+  const isFieldsFilled =
+    form.getFieldValue("email") && form.getFieldValue("password");
 
   return (
     <div className="flex gap-2 ">
@@ -102,9 +112,7 @@ const AdminLogin: React.FC = () => {
               htmlType="submit"
               style={{ width: "100%" }}
               className="bg-primary text-white cursor-pointer"
-              disabled={
-                !form.getFieldValue("email") || !form.getFieldValue("password")
-              }
+              disabled={!isFieldsFilled}
             >
               Sign In
             </Button>
