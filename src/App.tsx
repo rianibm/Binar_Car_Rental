@@ -11,8 +11,6 @@ import AdminDashboard from "./pages/AdminDashboard";
 import CarManagement from "./pages/CarManagement";
 
 const isAuthenticated = () => {
-  // Implement logic to check if the user is authenticated
-  // dummy check here
   const userToken = localStorage.getItem("userToken");
   return Boolean(userToken);
 };

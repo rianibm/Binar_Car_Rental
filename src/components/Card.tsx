@@ -1,20 +1,30 @@
 // src/components/Card.tsx
 import React from "react";
-
+import { Card } from "antd/lib";
 interface CardProps {
-  title: string;
+  name: string;
+  price: string;
+  type: string;
+  transmission: string;
   description: string;
-  imageUrl: string;
+  year: number;
+  image: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, imageUrl }) => {
-  return (
-    <div className="card">
-      <img src={imageUrl} alt={title} />
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </div>
-  );
-};
+const App: React.FC<CardProps> = ({
+  name,
+  price,
+  type,
+  transmission,
+  description,
+  year,
+  image,
+}) => (
+  <Card style={{ width: 300 }} className="hover:shadow-sm">
+    {/* <img src={imageUrl} alt={title} />
+    <h2>{title}</h2>
+    <p>{description}</p>{} */}
+  </Card>
+);
 
-export default Card;
+export default App;

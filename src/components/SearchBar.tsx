@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "antd/lib";
+import { Input, Button } from "antd";
 import type { SearchProps } from "antd/es/input/Search";
 
 const { Search } = Input;
@@ -11,7 +11,11 @@ const SearchBar: React.FC = () => (
   <Search
     placeholder="Search car"
     allowClear
-    enterButton="Search"
+    enterButton={
+      <Button className="bg-white text-primary border border-primary">
+        Search
+      </Button>
+    }
     size="large"
     onSearch={onSearch}
   />
